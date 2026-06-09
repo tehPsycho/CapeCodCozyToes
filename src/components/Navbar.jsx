@@ -32,7 +32,12 @@ function Navbar() {
               key={link.to}
               to={link.to}
               onClick={closeMenu}
-              className={({ isActive }) => isActive || (link.to === '/' && location.pathname === '/') ? 'active' : undefined}
+              className={({ isActive }) => {
+                const linkPath = link.to.split('#')[0]
+                const isPathActive = linkPath !== '/' && location.pathname === linkPath
+                const isHomeActive = linkPath === '/' && location.pathname === '/'
+                return isActive || isPathActive || isHomeActive ? 'active' : undefined
+              }}
             >
               {link.label}
             </NavLink>

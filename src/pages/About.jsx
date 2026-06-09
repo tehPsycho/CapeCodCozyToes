@@ -1,27 +1,58 @@
-import CTASection from '../components/CTASection'
+import { Link } from 'react-router-dom'
+import InquiryForm from '../components/InquiryForm'
 import PageHeader from '../components/PageHeader'
+import { siteConfig } from '../data/siteConfig'
+
+const aboutPoints = [
+  'Handmade chunky chenille pieces with soft, tactile texture.',
+  'Custom colors, sizing, and gift ideas are welcome.',
+  'Common pieces include plush animals, blankets, nursery sets, and scrunchies.',
+]
 
 function About() {
   return (
     <>
-      <PageHeader eyebrow="About the brand" title="Handmade cozy pieces with soft texture and coastal color.">
-        Cape Cod Cozy Toes creates chunky chenille yarn items designed to feel personal, polished, and wonderfully tactile.
+      <PageHeader eyebrow="About + Contact" title="Handmade cozy pieces with coastal color.">
+        Cape Cod Cozy Toes creates soft chunky chenille pieces that feel personal, polished, and wonderfully tactile.
       </PageHeader>
-      <section className="section">
-        <div className="container story-card shell-accent">
-          <p>Cape Cod Cozy Toes is a handmade chunky-knit creations brand focused on soft textures, custom colors, and thoughtful details. Each piece is made with chunky chenille yarn, giving plush animals, nursery items, blankets, and accessories a cozy feel that is both playful and practical.</p>
-          <p>The collection ranges from small accessories like hair scrunchies and ballerina skirt-style scrunchies to baby blankets, nursery keepsakes, plush animals, small blankets, and oversized XL/king blankets. Custom work is available for customers who want a specific color palette, size, theme, or gift idea.</p>
-          <p>The goal is simple: create handmade pieces that look beautiful, feel incredibly soft, and hold the character of something made carefully by hand.</p>
+
+      <section className="section section--tight">
+        <div className="container about-contact-grid">
+          <article className="info-card shell-accent">
+            <p className="eyebrow">About the brand</p>
+            <h2>Simple, soft, and made carefully by hand.</h2>
+            <p>
+              Cape Cod Cozy Toes focuses on handmade chenille creations with cozy texture, cheerful color, and thoughtful details. Each piece is made to feel beautiful, practical, and personal.
+            </p>
+            <ul className="check-list">
+              {aboutPoints.map((point) => <li key={point}>{point}</li>)}
+            </ul>
+            <div className="button-row">
+              <Link className="btn btn--dark" to="/custom">Request Custom</Link>
+              <Link className="btn btn--outline" to="/gallery">View Gallery</Link>
+            </div>
+          </article>
+
+          <aside className="contact-panel" id="contact">
+            <p className="eyebrow">Contact</p>
+            <h2>Have a question?</h2>
+            <p>Email for available items, custom colors, sizing, timing, or gift ideas.</p>
+            <a className="contact-panel__email" href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+            <p className="contact-panel__hint">For custom pieces, include item type, size, colors, and any inspiration notes.</p>
+          </aside>
         </div>
       </section>
-      <CTASection
-        title="Want something made in your colors?"
-        text="Share your size, colors, inspiration, and timeline for a custom chunky chenille quote."
-        primaryLabel="Start a Custom Order"
-        primaryTo="/custom"
-        secondaryLabel="View Gallery"
-        secondaryTo="/gallery"
-      />
+
+      <section className="section section--tight section--tint" id="quick-message">
+        <div className="container compact-form-grid">
+          <div>
+            <p className="eyebrow">Quick message</p>
+            <h2>Prefer a short note?</h2>
+            <p>Use this concise contact form to open a prefilled email draft.</p>
+          </div>
+          <InquiryForm mode="contact" />
+        </div>
+      </section>
     </>
   )
 }

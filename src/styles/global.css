@@ -202,3 +202,154 @@ input:focus, select:focus, textarea:focus { border-color: var(--seafoam); box-sh
   .gallery-item { min-height: 330px; }
   .brand span:last-child { font-size: 0.95rem; }
 }
+
+/* Compact refresh: keep the homepage bold, make interior pages lighter and easier to scan. */
+h1 { font-size: clamp(2.35rem, 5.8vw, 4.65rem); }
+h2 { font-size: clamp(1.75rem, 3.4vw, 2.95rem); }
+h3 { font-size: clamp(1.15rem, 2vw, 1.45rem); letter-spacing: -0.04em; }
+p { line-height: 1.58; }
+.container { width: min(1080px, calc(100% - 32px)); }
+.section { padding: clamp(2.25rem, 5vw, 4rem) 0; }
+.section--tight { padding: clamp(1.75rem, 4vw, 3rem) 0; }
+.page-header { padding: clamp(2rem, 5vw, 3.75rem) 0; }
+.page-header h1 { font-size: clamp(2.05rem, 4.6vw, 3.6rem); max-width: 780px; }
+.page-header__text { font-size: clamp(1rem, 1.5vw, 1.08rem); max-width: 680px; }
+.category-card, .product-card, .info-card, .story-card, .inquiry-form, .two-column-card, .gallery-cta { border-radius: var(--radius-md); }
+.info-card, .story-card { padding: clamp(1.2rem, 3vw, 1.8rem); }
+.cta-section { padding: clamp(2.25rem, 5vw, 4rem) 0; }
+.cta-card { padding: clamp(1.25rem, 3vw, 2rem); }
+.product-card__body { gap: 0.55rem; padding: 1rem; }
+.gallery-item { min-height: 230px; }
+.site-footer { padding: 1.75rem 0; }
+
+.home-landing {
+  display: grid;
+  min-height: calc(100svh - 76px);
+  overflow: hidden;
+  padding: clamp(1.4rem, 4vw, 3rem) 0;
+}
+.home-landing__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.72fr);
+  gap: clamp(1.5rem, 5vw, 4rem);
+  align-items: center;
+}
+.home-landing__copy { position: relative; z-index: 1; }
+.home-landing h1 {
+  max-width: 760px;
+  font-size: clamp(3.15rem, 8.2vw, 6.45rem);
+  line-height: 0.9;
+}
+.home-landing__subheadline {
+  max-width: 620px;
+  margin: 1rem 0 0;
+  font-size: clamp(1.02rem, 1.8vw, 1.28rem);
+}
+.home-landing__actions { margin-top: 1.25rem; }
+.quick-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1.1rem;
+}
+.quick-jump a {
+  border: 1px solid rgba(47, 111, 102, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 250, 243, 0.72);
+  color: var(--teal);
+  font-size: 0.86rem;
+  font-weight: 900;
+  padding: 0.52rem 0.75rem;
+}
+.example-card {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  border: 1px solid rgba(47, 111, 102, 0.12);
+  border-radius: 30px;
+  background: rgba(255, 250, 243, 0.9);
+  box-shadow: var(--shadow);
+}
+.example-card__image img {
+  width: 100%;
+  aspect-ratio: 1.05 / 0.84;
+  object-fit: cover;
+}
+.example-card__body { padding: clamp(1rem, 2.5vw, 1.45rem); }
+.example-card h2 { font-size: clamp(1.5rem, 3vw, 2.35rem); }
+.example-card p:not(.eyebrow) { margin: 0.6rem 0 0; }
+.mini-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.9rem;
+}
+.mini-tags span {
+  border-radius: 999px;
+  background: var(--mint);
+  color: var(--teal);
+  font-size: 0.74rem;
+  font-weight: 950;
+  padding: 0.36rem 0.6rem;
+}
+.about-contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.75fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+.contact-panel {
+  scroll-margin-top: 96px;
+  border: 1px solid rgba(47, 111, 102, 0.12);
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--teal), var(--seafoam));
+  box-shadow: var(--soft-shadow);
+  color: var(--cream);
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+}
+.contact-panel p, .contact-panel .eyebrow { color: rgba(255, 250, 243, 0.86); }
+.contact-panel h2 { color: var(--cream); }
+.contact-panel__email {
+  display: inline-flex;
+  width: fit-content;
+  margin: 0.35rem 0 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 250, 243, 0.94);
+  color: var(--teal);
+  font-weight: 950;
+  padding: 0.7rem 0.9rem;
+}
+.contact-panel__hint { margin-bottom: 0; font-size: 0.94rem; }
+.compact-form-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+.compact-form-grid .inquiry-form { padding: clamp(1rem, 2.5vw, 1.5rem); }
+.compact-form-grid textarea { min-height: 132px; }
+
+@media (max-width: 900px) {
+  .home-landing { min-height: auto; }
+  .home-landing__grid, .about-contact-grid, .compact-form-grid { grid-template-columns: 1fr; }
+  .home-landing h1 { font-size: clamp(3rem, 13vw, 5rem); }
+  .example-card__image img { aspect-ratio: 16 / 10; }
+}
+
+@media (max-width: 620px) {
+  .navbar { min-height: 64px; }
+  .brand__mark { width: 38px; height: 38px; border-radius: 13px; }
+  .nav-links { top: 64px; }
+  .home-landing { padding: 1.1rem 0 1.5rem; }
+  .home-landing h1 { font-size: clamp(2.85rem, 14vw, 4.4rem); }
+  .home-landing__subheadline { font-size: 1rem; }
+  .button-row, .home-landing__actions { gap: 0.6rem; }
+  .btn { width: 100%; min-height: 44px; padding: 0.72rem 1rem; }
+  .quick-jump a { flex: 1 1 calc(50% - 0.55rem); text-align: center; }
+  .example-card { border-radius: 24px; }
+  .page-header { padding: 1.65rem 0 2rem; }
+  .page-header h1 { font-size: clamp(1.95rem, 9vw, 3rem); }
+  .section { padding: 1.75rem 0; }
+  .gallery-item { min-height: 260px; }
+  .footer-grid { gap: 1rem; }
+}

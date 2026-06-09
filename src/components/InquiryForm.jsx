@@ -112,7 +112,7 @@ function InquiryForm({ mode = 'custom', initialItem = '' }) {
           name={isContact ? 'message' : 'notes'}
           value={isContact ? formData.message : formData.notes}
           onChange={updateField}
-          rows="6"
+          rows={isContact ? 4 : 6}
           required
           placeholder={isContact ? 'How can we help?' : 'Tell us about colors, texture, theme, inspiration photos, recipient, or matching room decor.'}
         />

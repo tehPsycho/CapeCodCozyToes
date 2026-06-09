@@ -10,8 +10,7 @@ export const siteConfig = {
 export const navLinks = [
   { label: 'Home', to: '/' },
   { label: 'Shop', to: '/shop' },
-  { label: 'Custom Orders', to: '/custom' },
+  { label: 'Custom', to: '/custom' },
   { label: 'Gallery', to: '/gallery' },
-  { label: 'About', to: '/about' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'About + Contact', to: '/about#contact' },
 ]
